@@ -1,0 +1,25 @@
+version: "3"
+services:
+    django-app:
+        container_name: django-app
+        build:
+            context: ./
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db
+
+    # react-app:
+    #     container_name: react-app
+    #     build:
+    #         context: ./frontend
+    #     ports:
+    #         - "3000:3000"
+
+    db:
+        container_name: db
+        image: postgres:latest
+        environment:
+            POSTGRES_DB: pathshare
+            POSTGRES_USER: jhemin0415
+            POSTGRES_PASSWORD: djdkdl159
