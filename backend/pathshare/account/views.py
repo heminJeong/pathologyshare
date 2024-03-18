@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -15,3 +16,6 @@ class TestAPIView(APIView):
     def get(self, request):
         data = {'message': 'This is a test API view!'}
         return Response(data)
+    
+class MainView(TemplateView):
+    template_name = "index.html"
