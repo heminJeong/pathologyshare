@@ -1,20 +1,27 @@
 version: "3"
 services:
-    django-app:
-        container_name: django-app
+    django_app:
+        container_name: django_app
         build:
             context: ./
+        volumes:
+            - ./backend/pathshare/staticfiles:/app/backend/pathshare/staticfiles
         ports:
             - "8000:8000"
         depends_on:
             - db
 
-    # react-app:
-    #     container_name: react-app
-    #     build:
-    #         context: ./frontend
-    #     ports:
-    #         - "3000:3000"
+    nginx_with_certbot:
+        container_name: nginx_with_certbot
+        build:
+            context: ./nginx
+        ports:
+            - "443:443"
+            - "80:80"
+        volumes:
+            - ./backend/pathshare/staticfiles:/staticfiles
+        depends_on:
+            - django_app
 
     db:
         container_name: db
