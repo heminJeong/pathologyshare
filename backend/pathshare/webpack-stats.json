@@ -1,0 +1,11 @@
+{
+    "status": "done",
+    "chunks": {
+        "main": [
+            {
+                "name": "main.js",
+                "publicPath": "/static/bundles/main.js"
+            }
+        ]
+    }
+}

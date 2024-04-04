@@ -11,8 +11,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 443
 EXPOSE 80
 
-# SSL 인증서 발급을 위한 도메인 설정
-# ARG DOMAIN_NAME="example.com"
-
 # Certbot을 사용하여 SSL 인증서 발급받기
-# RUN certbot certonly --nginx -d $DOMAIN_NAME
+# RUN certbot --nginx -d example.com
