@@ -4,44 +4,42 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { makeStyles } from "@mui/material";
-
-const useStyles = makeStyles((theme) => ({
-    customNavBar: {
-        backgroundColor: "#f44336",
-        color: "#fff",
-    },
-}));
+import Grid from "@mui/material/Grid"
+import { Container } from "react-bootstrap";
 
 function Main() {
     return (
-        <div>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" color="inherit">
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography
-                            variant="h6"
-                            component="div"
-                            sx={{ flexGrow: 1 }}
-                        >
-                            News
-                        </Typography>
-                        <Button color="dark">Login</Button>
-                    </Toolbar>
-                </AppBar>
-            </Box>
-        </div>
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" color="inherit" elevation={0}>
+                <Toolbar>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1, mr: 10 }}
+                    >
+                        Pathshare
+                    </Typography>
+                    <Button variant="contained" href="/signin" sx={{
+                        backgroundColor: '#000000',
+                        '&:hover': {
+                            backgroundColor: '#2e2e2e',
+                          }
+                    }}>Login</Button>
+                </Toolbar>
+            </AppBar>
+            <Grid
+                container
+                justifyContent="center" // 가운데 정렬
+                alignItems="center" // 세로 가운데 정렬
+                style={{ height: `calc(100vh - 64px)` }} // 화면 높이 - AppBar 높이
+            >
+                <Grid item>
+                    <Typography variant="h3" align="center">
+                        Share for better
+                    </Typography>
+                </Grid>
+            </Grid>
+        </Box>
     );
 }
 
