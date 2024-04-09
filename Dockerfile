@@ -1,14 +1,3 @@
-
-FROM node:21-slim AS nodejs
-
-COPY ./frontend /app/frontend
-
-WORKDIR /app/frontend
-
-RUN npm install
-
-RUN npm run build
-
 FROM python:3.12-slim AS base
 
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -20,8 +9,6 @@ COPY ./backend /app/backend
 RUN pip install --upgrade pip
 RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential
 RUN pip install -r /app/backend/requirements.txt
-
-COPY --from=nodejs /app/frontend/build /app/backend/pathshare/build
 
 # RUN SERVER
 WORKDIR /app/backend/pathshare

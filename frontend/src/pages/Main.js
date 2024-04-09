@@ -4,8 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid"
-import { Container } from "react-bootstrap";
+import Grid from "@mui/material/Grid";
 
 function Main() {
     return (
@@ -19,12 +18,18 @@ function Main() {
                     >
                         Pathshare
                     </Typography>
-                    <Button variant="contained" href="/signin" sx={{
-                        backgroundColor: '#000000',
-                        '&:hover': {
-                            backgroundColor: '#2e2e2e',
-                          }
-                    }}>Login</Button>
+                    <Button
+                        variant="contained"
+                        href="/signin"
+                        sx={{
+                            backgroundColor: "#000000",
+                            "&:hover": {
+                                backgroundColor: "#2e2e2e",
+                            },
+                        }}
+                    >
+                        Login
+                    </Button>
                 </Toolbar>
             </AppBar>
             <Grid
@@ -35,7 +40,7 @@ function Main() {
             >
                 <Grid item>
                     <Typography variant="h3" align="center">
-                        Share for better
+                        Share for Better
                     </Typography>
                 </Grid>
             </Grid>
