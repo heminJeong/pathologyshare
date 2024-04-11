@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import { GoogleLoginButton } from "react-social-login-buttons";
 
 function Main() {
     return (
@@ -18,18 +19,7 @@ function Main() {
                     >
                         Pathshare
                     </Typography>
-                    <Button
-                        variant="contained"
-                        href="/signin"
-                        sx={{
-                            backgroundColor: "#000000",
-                            "&:hover": {
-                                backgroundColor: "#2e2e2e",
-                            },
-                        }}
-                    >
-                        Login
-                    </Button>
+                    <GoogleLoginButton onClick={() => alert("Hello")} />
                 </Toolbar>
             </AppBar>
             <Grid
