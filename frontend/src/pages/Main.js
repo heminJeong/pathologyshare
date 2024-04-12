@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { GoogleLoginButton } from "react-social-login-buttons";
+import GoogleLogin from 'react-google-login';
 
 function Main() {
     return (
@@ -19,7 +19,7 @@ function Main() {
                     >
                         Pathshare
                     </Typography>
-                    <GoogleLoginButton onClick={() => alert("Hello")} />
+                    <GoogleLogin onClick={() => alert("Hello")} />
                 </Toolbar>
             </AppBar>
             <Grid
