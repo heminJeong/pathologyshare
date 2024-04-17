@@ -1,37 +1,13 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import TopBar from "../components/TopBar";
 
 function Main() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" color="inherit" elevation={0}>
-                <Toolbar>
-                    <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, mr: 10 }}
-                    >
-                        Pathshare
-                    </Typography>
-                    <Button
-                        variant="contained"
-                        href="/signin"
-                        sx={{
-                            backgroundColor: "#000000",
-                            "&:hover": {
-                                backgroundColor: "#2e2e2e",
-                            },
-                        }}
-                    >
-                        Login
-                    </Button>
-                </Toolbar>
-            </AppBar>
+            <TopBar />
             <Grid
                 container
                 justifyContent="center" // 가운데 정렬

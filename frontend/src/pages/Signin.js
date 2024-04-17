@@ -1,42 +1,37 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { Box, Button, TextField } from "@mui/material";
+import TopBar from "../components/TopBar";
 
 function Signin() {
     return (
         <Box>
-            <Grid container spacing={0}>
-                <Grid item xs={6} md={6}></Grid>
-                <Grid item xs={6} md={6}>
-                    <Box
-                        component="form"
-                        sx={{
-                            "& > :not(style)": { m: 1, width: "25ch" },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                    >
-                        <h1>Signin</h1>
-                        <TextField
-                            required
-                            id="id"
-                            label="ID"
-                            variant="standard"
-                        />
-                        <TextField
-                            id="pw"
-                            label="Password"
-                            type="password"
-                            variant="standard"
-                        />
-                        <Button type="submit" variant="outlined">
-                            signin
-                        </Button>
-                    </Box>
-                </Grid>
-            </Grid>
+            <TopBar />
+            <Box component="form">
+                <TextField required label="ID" variant="standard" />
+                <TextField
+                    required
+                    label="PASSWORD"
+                    type="password"
+                    variant="standard"
+                />
+                <Button variant="contained">Sign in</Button>
+            </Box>
+            <Box component="form">
+                <TextField required label="ID" variant="standard" />
+                <TextField
+                    required
+                    label="PASSWORD"
+                    type="password"
+                    variant="standard"
+                />
+                <TextField
+                    required
+                    label="PASSWORD CONFIRM"
+                    type="password"
+                    variant="standard"
+                />
+                <Button variant="outlined">Sign Up</Button>
+            </Box>
         </Box>
     );
 }
