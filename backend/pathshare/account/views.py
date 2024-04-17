@@ -15,20 +15,12 @@ class UserCreateAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class TestAPIView(APIView):
-    def get(self, request):
-        data = {'message': 'This is a test API view!'}
-        return Response(data)
-    
-class MainView(TemplateView):
-    template_name = "index.html"
-
 class SignInView(APIView):
     def post(self, request):
         username = request.get.data('username')
         pw = request.get.data('password')
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, username=username, password=pw)
         if user:
             payload = {
                 'username' : username,
@@ -38,22 +30,5 @@ class SignInView(APIView):
         else:
             return Response({'error':'Invalid Credentials'}, status=status.HTTP_400_BAD_REQUEST)
         
-class SignUpView(APIView):
-    def post(self, request):
-        username = request.get.data('username')
-        pw = request.get.data('password')
-
-        
-class ImageUploadView(APIView):
-    def post(self, request):
-        pass
-
-class AnnotationView(APIView):
-    def get(self, request):
-        pass
-
-    def post(self, request):
-        pass
-
-    def 
-    
+class SignUpView(generics.CreateAPIView):
+    serializer_class = UserSerializer
