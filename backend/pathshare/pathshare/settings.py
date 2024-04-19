@@ -28,6 +28,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'example.com']
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 # Application definition
 
@@ -40,15 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'account',
-    'webpack_loader'
+    'corsheaders',
+    'oauth2_provider',
+    'social_django',
+    
 ]
 
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'bundles/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.dev.json')
-    }
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'pathshare.urls'
@@ -65,7 +65,7 @@ ROOT_URLCONF = 'pathshare.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,6 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -140,8 +142,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-AUTH_USER_MODEL = 'account.User'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
