@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('rest_framework.urls')),
     path('api/register/', UserCreateAPIView.as_view(), name='user-create'),
-    path('api/signin/', SignInView.as_view(), name='sign-in'),
-    path('api/signup/', SignUpView.as_view(), name='sign-up'),
+    path('api/signin/', SignInView.as_view(), name='sign_in'),
+    path('api/signup/', SignUpView.as_view(), name='sign_up'),
 ]

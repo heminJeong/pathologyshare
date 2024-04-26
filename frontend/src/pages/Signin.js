@@ -32,12 +32,33 @@ function Signin() {
     };
 
     const handleSignInSubmit = (e) => {
-        e.preventDefault();
+        axios
+            .post("http://localhost:8000/api/signin/", {
+                id: "id",
+                pw: "pw",
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         console.log(signInFormData);
     };
 
     const handleSignUpSubmit = (e) => {
-        e.preventDefault();
+        axios
+            .post("http://localhost:8000/api/signup/", {
+                id: "id",
+                pw1: "pw1",
+                pw2: "pw2",
+            })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         console.log(signUpFormData);
     };
     const textfield_marginx = 9;
@@ -62,8 +83,6 @@ function Signin() {
                         }}
                     >
                         <Box
-                            component="form"
-                            onSubmit={handleSignInSubmit}
                             sx={{
                                 flexDirection: "column",
                                 display: "flex",
@@ -95,10 +114,9 @@ function Signin() {
                                     my: 2,
                                 }}
                             />
-
                             <Button
                                 variant="contained"
-                                type="submit"
+                                onClick={handleSignInSubmit}
                                 sx={{ mx: 8, my: 7, p: 1, Y: "200px" }}
                             >
                                 Sign in
@@ -119,8 +137,6 @@ function Signin() {
                         }}
                     >
                         <Box
-                            component="form"
-                            onSubmit={handleSignUpSubmit}
                             sx={{
                                 alignContent: "center",
                                 flexDirection: "column",
@@ -159,7 +175,7 @@ function Signin() {
                             />
                             <Button
                                 variant="outlined"
-                                type="submit"
+                                onClick={handleSignUpSubmit}
                                 sx={{ mx: 8, my: 7, p: 1 }}
                             >
                                 Sign Up
