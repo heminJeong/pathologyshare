@@ -25,6 +25,8 @@ services:
     db_dev:
         container_name: db_dev
         image: postgres:latest
+        ports:
+            - "5432:5432"
         environment:
             POSTGRES_DB: pathshare
             POSTGRES_USER: jhemin0415

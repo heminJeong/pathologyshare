@@ -43,7 +43,6 @@ function Signin() {
             .catch((err) => {
                 console.log(err);
             });
-        console.log(signInFormData);
     };
 
     const handleSignUpSubmit = (e) => {
@@ -59,7 +58,6 @@ function Signin() {
             .catch((err) => {
                 console.log(err);
             });
-        console.log(signUpFormData);
     };
     const textfield_marginx = 9;
 
